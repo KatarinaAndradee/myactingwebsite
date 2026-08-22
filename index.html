@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katarina Andrade | Actor, Singer &amp; Storyteller</title>
+  <meta name="description" content="Official performance portfolio of Katarina Andrade, Brazilian actor, singer, and storyteller.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Yeseva+One&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple: #4E2A84;
+      --yellow: #FFE875;
+      --orange: #FF8200;
+      --ink: #0E0B16;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: "DM Sans", sans-serif;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      color: white;
+      background: var(--purple);
+      box-shadow: 0 8px 28px rgba(14,11,22,.16);
+    }
+    section[data-page] { display: none; }
+    section[data-page].active-page { display: block; animation: page-in .32s ease both; }
+    @keyframes page-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      min-height: auto;
+      color: white;
+      background:
+        radial-gradient(circle at 84% 18%, rgba(255,130,0,.16), transparent 24rem),
+        var(--purple);
+      overflow: hidden;
+    }
+    .nav {
+      width: min(1180px, 90%);
+      margin: auto;
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .logo {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      background: var(--white);
+      color: var(--purple);
+      font-family: "Yeseva One", serif;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: none;
+      background-image: linear-gradient(135deg, var(--ink) 0%, var(--purple) 78%, var(--orange) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-left: 8px;
+    }
+    .nav-links a {
+      padding: 7px 0;
+      color: white;
+      text-decoration: none;
+      font-family: "Yeseva One", Georgia, serif;
+      font-size: 20px;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus { border-bottom-color: white; }
+    .nav-links a.active-tab { border-bottom-color: var(--yellow); color: var(--yellow); }
+    .menu-button {
+      display: none;
+      margin-left: auto;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 999px;
+      padding: 9px 15px;
+      color: white;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero-content {
+      width: min(1100px, 86%);
+      min-height: auto;
+      margin: auto;
+      padding: 44px 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 7vw;
+    }
+    .acting, .singing, .headshots, .resume, .offstage, .contact { min-height: calc(100vh - 92px); }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--yellow);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: "Yeseva One", serif; font-weight: 400; }
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(56px, 7.2vw, 104px);
+      line-height: .96;
+      letter-spacing: -.035em;
+    }
+    .intro {
+      max-width: 520px;
+      margin: 24px 0 30px;
+      font-size: clamp(17px, 1.5vw, 21px);
+      line-height: 1.6;
+    }
+    .button {
+      display: inline-block;
+      padding: 13px 21px;
+      border: 1px solid white;
+      border-radius: 999px;
+      color: var(--purple);
+      background: white;
+      font-weight: 600;
+      font-family: "Yeseva One", Georgia, serif;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+    .button.outline { margin-left: 9px; color: white; background: transparent; }
+
+    .portrait-frame {
+      position: relative;
+      aspect-ratio: 1.45 / 1;
+      transform: rotate(-10deg);
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: none;
+      overflow: hidden;
+    }
+    .portrait-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        145deg,
+        rgba(78, 42, 132, .15),
+        rgba(78, 42, 132, .20)
+      );
+      mix-blend-mode: multiply;
+    }
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 14%;
+      transform: rotate(10deg) scale(1.11);
+      filter: saturate(.93) contrast(1.015);
+    }
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      color: var(--purple);
+      text-align: center;
+      transform: rotate(8deg);
+    }
+
+    section:not(.hero):not(.who-i-am) { padding: 100px 0; }
+    .section-inner { width: min(1080px, 86%); margin: auto; }
+    h2 { margin: 0 0 20px; color: var(--purple); font-size: clamp(38px, 5vw, 68px); }
+    .section-lead { max-width: 720px; font-size: 19px; line-height: 1.7; }
+
+    .acting { background: var(--white); }
+    .production-gallery { margin: 52px 0 0; }
+    .production-gallery + .production-gallery { margin-top: 58px; }
+    .production-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .production-photo-grid.single { grid-template-columns: minmax(0, 620px); justify-content: center; }
+    .production-photo-grid.two-up {
+      grid-template-columns: repeat(2, minmax(0, 280px));
+      justify-content: center;
+    }
+    .production-image-crop {
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      border-radius: 14px;
+      background: var(--ink);
+      box-shadow: 0 10px 26px rgba(14,11,22,.14);
+    }
+    .production-photo-grid .production-image-crop img {
+      height: 100%;
+      aspect-ratio: auto;
+      border-radius: 0;
+      box-shadow: none;
+      transform: scale(1.2);
+    }
+    .production-photo-grid .production-image-crop:first-child img { object-position: 50% 43%; }
+    .production-photo-grid .production-image-crop:last-child img { object-position: 50% 48%; }
+    .production-photo-grid.twelve-grid {
+      display: block;
+      width: min(480px, 100%);
+      margin-inline: auto;
+    }
+    .production-photo-grid.twelve-grid img {
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+    .production-photo-grid img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 14px;
+      background: var(--ink);
+      box-shadow: 0 10px 26px rgba(14,11,22,.14);
+    }
+    .production-gallery figcaption {
+      margin-top: 12px;
+      color: #5b5365;
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .production-gallery figcaption strong { color: var(--purple); font-size: 14px; }
+
+    .singing { color: white; background: var(--purple); }
+    .singing h2 { color: white; }
+    .singing .section-lead { color: white; }
+    .singing-media {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+      margin-top: 42px;
+    }
+    .singing-video-card {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 26px;
+      color: white;
+      background: var(--ink);
+      box-shadow: 0 18px 44px rgba(14,11,22,.28);
+    }
+    .singing-video-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--ink);
+      object-fit: contain;
+    }
+    .singing-video-card figcaption {
+      padding: 15px 18px 17px;
+      font-family: "Yeseva One", serif;
+      font-size: 18px;
+      text-align: center;
+    }
+    .singing-photo-grid {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .singing-photo-grid img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      border-radius: 26px;
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 18px 44px rgba(14,11,22,.24);
+    }
+
+    .headshots { background: var(--white); }
+    .headshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 820px;
+      margin: 42px auto 0;
+    }
+    .headshot-card { margin: 0; overflow: hidden; border-radius: 28px; background: transparent; box-shadow: 0 14px 38px rgba(78,42,132,.14); }
+    .headshot-card img { display: block; width: 100%; height: auto; object-fit: contain; transition: transform .35s ease; }
+    .headshot-card:hover img { transform: scale(1.025); }
+
+    .offstage { background: var(--yellow); }
+    .offstage-gallery { display: grid; gap: 34px; margin-top: 34px; }
+    .hobby-gallery {
+      padding: 28px;
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: 0 14px 38px rgba(78,42,132,.1);
+    }
+    .hobby-gallery h3 { margin: 0 0 20px; color: var(--purple); font-size: 30px; }
+    .hobby-photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+    }
+    .media-card {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #f8f6fb;
+      box-shadow: 0 8px 20px rgba(14,11,22,.12);
+    }
+    .media-card img,
+    .media-card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--ink);
+    }
+    .media-card figcaption {
+      padding: 10px 12px 12px;
+      color: #5b5365;
+      font-size: 12.5px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .media-card figcaption strong { color: var(--purple); }
+    .hobby-photo-grid .wide-bake {
+      grid-column: span 2;
+    }
+    .hobby-photo-grid .wide-bake img { aspect-ratio: 4 / 3; }
+    .movement-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .movement-grid .media-card img { aspect-ratio: 4 / 3; }
+    .movement-grid .movement-video-card { grid-column: 1 / -1; }
+    .movement-grid .movement-video-card video { aspect-ratio: 16 / 9; object-fit: contain; }
+    .dearborn-media-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .dearborn-media-grid img,
+    .dearborn-media-grid video {
+      aspect-ratio: 4 / 5;
+    }
+    .dearborn-media-grid video { cursor: pointer; }
+    .dearborn-media-grid .sky-photo { object-fit: contain; }
+    .places-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .places-grid.hawaii-grid { max-width: 900px; margin-inline: auto; }
+    .place-card {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: 0 14px 38px rgba(78,42,132,.1);
+    }
+    .place-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .place-card figcaption {
+      padding: 12px 16px 15px;
+      color: #5b5365;
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .place-card strong {
+      color: var(--purple);
+      font-weight: 600;
+    }
+    .who-i-am { margin-top: -1px; padding: 28px 0 88px; color: white; background: var(--purple); }
+    .who-i-am .statement-copy p { color: white; }
+    .statement-copy { max-width: 900px; }
+    .statement-copy p { font-size: 18px; line-height: 1.8; }
+    .statement-meme { width: min(650px, 100%); max-width: none; margin: 14px 0 30px; padding: 16px; border: 1px solid rgba(255,255,255,.25); border-radius: 24px; background: rgba(255,255,255,.08); }
+    .statement-meme h3 { margin: 0 0 11px; color: var(--yellow); font-size: clamp(22px, 2.2vw, 29px); }
+    .hear-name { display: inline-flex; align-items: center; gap: 9px; margin: 17px 0 4px; padding: 9px 15px 9px 10px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px; color: white; background: transparent; font: 600 15px "DM Sans", sans-serif; text-decoration: none; cursor: pointer; }
+    .hear-name:hover { background: rgba(255,255,255,.12); }
+    .hear-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--purple); background: var(--white); font-size: 17px; }
+    .video-wrap { position: relative; overflow: hidden; aspect-ratio: 16 / 9; border-radius: 18px; background: var(--ink); }
+    .video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: var(--ink);
+      object-fit: contain;
+    }
+    .resume { color: white; background: var(--purple); text-align: center; }
+    .resume h2 { color: white; }
+    .resume-card {
+      max-width: 620px;
+      margin: 38px auto 0;
+      padding: 42px 34px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 28px;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 18px 48px rgba(14,11,22,.2);
+    }
+    .resume-card p { margin: 0 auto 26px; font-size: 18px; line-height: 1.7; }
+    .resume-card .button { color: var(--purple); background: white; }
+
+    .contact { color: white; background: var(--orange); text-align: center; }
+    .contact h2 { color: white; }
+    .contact p { max-width: 600px; margin: 0 auto 28px; font-size: 18px; line-height: 1.7; }
+    .contact .button { color: var(--ink); }
+    footer { padding: 24px; color: white; background: var(--ink); text-align: center; font-size: 14px; }
+
+    @media (max-width: 760px) {
+      .nav { min-height: 78px; }
+      .logo { width: 49px; height: 49px; font-size: 20px; box-shadow: none; }
+      .menu-button { display: block; }
+      .nav-links {
+        position: absolute;
+        z-index: 5;
+        top: 72px;
+        right: 5%;
+        display: none;
+        width: 190px;
+        padding: 18px;
+        border-radius: 18px;
+        background: var(--ink);
+        box-shadow: 0 14px 35px rgba(0,0,0,.25);
+      }
+      .nav-links.open { display: grid; gap: 6px; }
+      .hero-content { grid-template-columns: 1fr; padding-top: 40px; text-align: center; }
+      .intro { margin-left: auto; margin-right: auto; }
+      .portrait-frame { width: min(430px, 94%); margin: 22px auto 40px; }
+      .headshot-grid { grid-template-columns: 1fr; }
+      .production-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .production-photo-grid.single { grid-template-columns: 1fr; }
+      .production-photo-grid.two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .production-photo-grid img { height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+      .production-photo-grid .production-image-crop img { height: 100%; aspect-ratio: auto; }
+      .production-photo-grid.twelve-grid { width: min(390px, 84vw); }
+      .singing-media { grid-template-columns: 1fr; }
+      .singing-video-card { width: min(360px, 100%); margin: auto; }
+      .singing-photo-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+      .singing-photo-grid img { height: auto; aspect-ratio: 3 / 2; }
+      .hobby-gallery { padding: 22px 16px; }
+      .hobby-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .movement-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .dearborn-media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .places-grid { grid-template-columns: 1fr; }
+      section:not(.hero):not(.who-i-am) { padding: 74px 0; }
+      .who-i-am { padding: 20px 0 70px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="logo" href="#home" data-page-link="home" aria-label="Katarina Andrade home">KA</a>
+      <button class="menu-button" type="button" aria-expanded="false">Menu</button>
+      <div class="nav-links">
+        <a href="#home" data-page-link="home">Home</a>
+        <a href="#acting" data-page-link="acting">Acting</a>
+        <a href="#singing" data-page-link="singing">Singing</a>
+        <a href="#headshots" data-page-link="headshots">Headshots</a>
+        <a href="#resume" data-page-link="resume">Resume</a>
+        <a href="#offstage" data-page-link="offstage">Offstage</a>
+        <a href="#contact" data-page-link="contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero active-page" id="home" data-page="home">
+
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">Actor · Singer · Storyteller</p>
+        <h1>Katarina Andrade</h1>
+        <a class="hear-name" href="https://www.name-coach.com/katarina-andrade" target="_blank" rel="noopener"><span class="hear-icon" aria-hidden="true">🔊</span>Hear my name</a>
+        <p class="intro">Olá! I’m a Brazilian performer based in Chicago, bringing curiosity and humor to stage and screen.</p>
+      </div>
+      <div class="portrait-frame">
+        <img src="headshot-black.jpg" alt="Headshot of Katarina Andrade" width="1463" height="2048" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="who-i-am active-page" id="who-i-am" data-page="home">
+    <div class="section-inner statement-copy">
+      <div class="statement-meme">
+        <h3>Wait a minute… who are you?</h3>
+        <div class="video-wrap">
+          <video class="kazoo-video" controls autoplay playsinline preload="auto" aria-label="Wait a minute, who are you? meme clip">
+            <source src="kazoo-kid.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+        </div>
+      </div>
+      <p>Katarina Andrade (using the quick Latino tongue tap R) is a Theatre and Physics &amp; Astronomy senior at Northwestern University, a blend of art and science. She hosts and narrates the night sky for visitors at Dearborn Observatory, where storytelling meets stargazing. She has played leading roles both on screen and on stage, starring as no one but herself in "Autobiografia," an autobiographical short film exploring her own life, and as the revered Virgin Mary in <em>O Auto da Compadecida</em> (A Dog's Will), the classic Brazilian play by playwright Ariano Suassuna.</p>
+      <p>Beyond acting, Katarina brings that same attention to detail to set design, including Northwestern's 93rd Waa Mu Show, "Taken Away: A Musical Trilogy," at Cahn Auditorium. True to her reputation, nothing on her set actually got taken away, and it stayed rock solid, anchoring three one-act musicals connected by themes of loss and grief.</p>
+      <p>She is also a proud mezzo-soprano, with Northwestern's all-female Significant Others a cappella group, fulfilling her lifelong dream of being a real-life Barden Bella from <em>Pitch Perfect</em> (beatboxing skills still a work in progress). She also dances Brazilian funk and choreographs for Dale Duro Latin Dance Company because, in her words, "nothing builds friendship quite like shaking ass together."</p>
+      <p>The other half of her brain is dedicated to astrophysics, with research on galaxies and black holes at Northwestern's Center for Interdisciplinary Exploration and Research in Astrophysics (CIERA). Her stargazing has taken her as far as the top of the world, Hawaii's Mauna Kea, the tallest mountain on Earth (sorry, Everest), where the constellations look nothing like the ones back home in Brazil.</p>
+    </div>
+  </section>
+
+  <section class="acting" id="acting" data-page="acting">
+    <div class="section-inner">
+      <p class="eyebrow">Selected work</p>
+      <h2>Acting</h2>
+      <p class="section-lead">Brazilian actor, dancer, and storyteller working across stage and screen.</p>
+      <figure class="production-gallery">
+        <div class="production-photo-grid" aria-label="Production photos from The Beyond">
+          <img src="beyond-1.webp" alt="Production photo from The Beyond" loading="lazy">
+          <img src="beyond-2.webp" alt="Production photo from The Beyond" loading="lazy">
+          <img src="beyond-3.webp" alt="Production photo from The Beyond" loading="lazy">
+          <img src="beyond-4.webp" alt="Production photo from The Beyond" loading="lazy">
+        </div>
+        <figcaption><strong><em>The Beyond: The Vision of Georgia O’Keeffe</em></strong> · Directed by Julie Marie Myatt and Jessica Thebus · Photos by Justin Barbin</figcaption>
+      </figure>
+      <figure class="production-gallery">
+        <div class="production-photo-grid" aria-label="Production photos from The Comedy of Errors">
+          <img src="comedy-1.webp" alt="Production photo from The Comedy of Errors" loading="lazy">
+          <img src="comedy-2.webp" alt="Production photo from The Comedy of Errors" loading="lazy">
+          <img src="comedy-3.webp" alt="Production photo from The Comedy of Errors" loading="lazy">
+          <img src="comedy-4.webp" alt="Production photo from The Comedy of Errors" loading="lazy">
+        </div>
+        <figcaption><strong><em>The Comedy of Errors</em></strong> · Directed by Shawn Douglas · Photos by Sasha Draeger-Mazer</figcaption>
+      </figure>
+      <figure class="production-gallery">
+        <div class="production-photo-grid two-up chalk-grid" aria-label="Production photos from The Caucasian Chalk Circle">
+          <div class="production-image-crop"><img src="chalk-circle-1.webp" alt="Production photo from The Caucasian Chalk Circle" loading="lazy"></div>
+          <div class="production-image-crop"><img src="chalk-circle-2.webp" alt="Production photo from The Caucasian Chalk Circle" loading="lazy"></div>
+        </div>
+        <figcaption><strong><em>The Caucasian Chalk Circle</em></strong> · Directed by Katy Walsh</figcaption>
+      </figure>
+      <figure class="production-gallery">
+        <div class="production-photo-grid single twelve-grid">
+          <img src="twelve-angry-jurors.webp" alt="Production photo from Twelve Angry Jurors" loading="lazy">
+        </div>
+        <figcaption><strong><em>Twelve Angry Jurors</em></strong> · Directed by Hillary Altes · Photos by Isabella Millman</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="singing" id="singing" data-page="singing">
+    <div class="section-inner">
+      <p class="eyebrow">Mezzo-soprano</p>
+      <h2>Singing</h2>
+      <p class="section-lead">With Northwestern’s Significant Others (SigO), an all-female a cappella group—living out my real-life Barden Bella dream, with beatboxing still a work in progress.</p>
+      <div class="singing-media">
+        <figure class="singing-video-card">
+          <video controls playsinline preload="metadata">
+            <source src="sigo-performance.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>Significant Others · Performance Reel</figcaption>
+        </figure>
+        <figure class="singing-video-card">
+          <video controls playsinline preload="metadata">
+            <source src="sigo-second-performance.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>Significant Others · Holiday Performance</figcaption>
+        </figure>
+        <div class="singing-photo-grid" aria-label="Photos with Northwestern Significant Others a cappella">
+          <img src="sigo-outdoors.webp" alt="Katarina Andrade with Northwestern Significant Others outdoors" loading="lazy">
+          <img src="sigo-stage.webp" alt="Katarina Andrade with Northwestern Significant Others after a performance" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="headshots" id="headshots" data-page="headshots">
+    <div class="section-inner">
+      <p class="eyebrow">Gallery</p>
+      <h2>Headshots</h2>
+      <div class="headshot-grid">
+        <figure class="headshot-card"><img src="headshot-black.jpg" alt="Katarina Andrade wearing a black top" width="1463" height="2048" loading="lazy"></figure>
+        <figure class="headshot-card"><img src="headshot-white.jpg" alt="Katarina Andrade smiling in a white top" width="1462" height="2048" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="offstage" id="offstage" data-page="offstage">
+    <div class="section-inner">
+      <p class="eyebrow">Beyond acting</p>
+      <h2>Offstage</h2>
+      <div class="offstage-gallery">
+        <article class="hobby-gallery">
+          <h3>Baking</h3>
+          <div class="hobby-photo-grid" aria-label="Katarina Andrade’s baking gallery">
+            <figure class="media-card"><img src="bakery-1.webp" alt="Strawberry cake decorated by Katarina Andrade" loading="lazy"><figcaption><strong>Strawberry cake</strong></figcaption></figure>
+            <figure class="media-card"><img src="bakery-2.webp" alt="Freshly baked brownies" loading="lazy"><figcaption><strong>Brownies</strong></figcaption></figure>
+            <figure class="media-card"><img src="bakery-3.webp" alt="Chocolate-glazed cupcakes baked by Katarina Andrade" loading="lazy"><figcaption><strong>Chocolate-glazed cupcakes</strong></figcaption></figure>
+            <figure class="media-card"><img src="bakery-4.webp" alt="Lime-glazed bundt cake baked by Katarina Andrade" loading="lazy"><figcaption><strong>Lime-glazed bundt cake</strong></figcaption></figure>
+            <figure class="media-card"><img src="bakery-5.webp" alt="Bolo de cenoura, a Brazilian carrot cake with chocolate glaze" loading="lazy"><figcaption><strong>Bolo de cenoura</strong> (Brazilian carrot cake)</figcaption></figure>
+            <figure class="media-card wide-bake"><img src="bakery-6.webp" alt="Heart-shaped guava cookies beside a watercolor sketch by Katarina Andrade" loading="lazy"><figcaption><strong>Guava heart cookies</strong></figcaption></figure>
+            <figure class="media-card wide-bake"><img src="bakery-7.webp" alt="Halloween donuts decorated by Katarina Andrade" loading="lazy"><figcaption><strong>Halloween donuts</strong> (I sold donuts during high school!)</figcaption></figure>
+          </div>
+        </article>
+
+        <article class="hobby-gallery">
+          <h3>Painting</h3>
+          <div class="hobby-photo-grid" aria-label="Katarina Andrade’s painting gallery">
+            <figure class="media-card"><img src="painting-1.webp" alt="Landscape painting by Katarina Andrade on an easel" loading="lazy"><figcaption><strong>Landscape study</strong></figcaption></figure>
+            <figure class="media-card"><img src="painting-2.webp" alt="Katarina Andrade painting outdoors" loading="lazy"><figcaption><strong>Painting outdoors</strong></figcaption></figure>
+            <figure class="media-card"><img src="painting-3.webp" alt="Black-and-white sphere study painted by Katarina Andrade" loading="lazy"><figcaption><strong>Sphere study</strong></figcaption></figure>
+            <figure class="media-card"><img src="painting-4.webp" alt="Abstract red and black painting by Katarina Andrade" loading="lazy"><figcaption><strong>Abstract study</strong></figcaption></figure>
+            <figure class="media-card"><img src="painting-5.webp" alt="Colorful still-life painting by Katarina Andrade" loading="lazy"><figcaption><strong>Still life</strong></figcaption></figure>
+          </div>
+        </article>
+
+        <article class="hobby-gallery">
+          <h3>Movement</h3>
+          <div class="hobby-photo-grid movement-grid" aria-label="Katarina Andrade’s movement gallery">
+            <figure class="media-card"><img src="dance-1.webp" alt="Katarina Andrade performing with a Latin dance ensemble" loading="lazy"><figcaption><strong>Dale Duro Latin Dance Co.</strong></figcaption></figure>
+            <figure class="media-card"><img src="dance-2.webp" alt="Katarina Andrade dancing in a red-lit ensemble performance" loading="lazy"><figcaption><strong>Ensemble performance</strong></figcaption></figure>
+            <figure class="media-card"><img src="dance-3.webp" alt="Three moments from Katarina Andrade’s solo dance performance" loading="lazy"><figcaption><strong>Solo movement study</strong></figcaption></figure>
+            <figure class="media-card"><img src="dance-4.webp" alt="Katarina Andrade performing a holiday dance number" loading="lazy"><figcaption><strong>Holiday performance</strong></figcaption></figure>
+            <figure class="media-card"><img src="dance-5.webp" alt="Katarina Andrade in a solo dance pose under purple stage light" loading="lazy"><figcaption><strong>Solo performance</strong></figcaption></figure>
+            <figure class="media-card"><img src="dance-6.webp" alt="Katarina Andrade performing a choreographed floor sequence" loading="lazy"><figcaption><strong>Choreographed floorwork</strong></figcaption></figure>
+            <figure class="media-card movement-video-card">
+              <video controls playsinline preload="metadata" aria-label="Brazilian samba and funk choreography by Katarina Andrade for Dale Duro Latin Dance Company">
+                <source src="movement-dale-duro-2026.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+              </video>
+              <figcaption><strong>Brazilian samba + funk</strong> · Choreographed for Dale Duro Latin Dance Co. (2026)</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="hobby-gallery">
+          <h3>Dearborn Observatory</h3>
+          <div class="dearborn-media-grid" aria-label="Dearborn Observatory photo and video gallery">
+            <figure class="media-card"><img src="dearborn-night.png" alt="Dearborn Observatory telescope beneath the night sky" loading="lazy"><figcaption><strong>Dearborn at night</strong></figcaption></figure>
+            <figure class="media-card"><img class="sky-photo" src="dearborn-eclipse.png" alt="Lunar eclipse photographed through the Dearborn Observatory telescope" loading="lazy"><figcaption><strong>Lunar eclipse</strong> through the telescope</figcaption></figure>
+            <figure class="media-card"><img class="sky-photo" src="dearborn-nebula.png" alt="Nebula photographed through the Dearborn Observatory telescope" loading="lazy"><figcaption><strong>Nebula</strong> through the telescope</figcaption></figure>
+            <figure class="media-card">
+              <video controls playsinline preload="metadata" aria-label="Katarina Andrade operating the Dearborn Observatory dome">
+                <source src="dearborn-tour.mp4" type="video/mp4">
+                Your browser does not support embedded video.
+              </video>
+              <figcaption><strong>Opening the dome</strong></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="hobby-gallery">
+          <h3>Keck Observatory · Mauna Kea, Hawaiʻi</h3>
+          <div class="places-grid hawaii-grid" aria-label="Keck Observatory and Mauna Kea gallery">
+            <figure class="place-card">
+              <img src="keck-telescope.png" alt="Katarina Andrade reflected beside one of the mirrors inside Keck Observatory" loading="lazy">
+              <figcaption>Me compared to one of Keck’s mirrors.</figcaption>
+            </figure>
+            <figure class="place-card">
+              <img src="hawaii-keck.png" alt="Katarina Andrade at the observatories on Mauna Kea in Hawaiʻi" loading="lazy">
+              <figcaption><strong>34k feet</strong> from base to summit.</figcaption>
+            </figure>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="resume" id="resume" data-page="resume">
+    <div class="section-inner">
+      <p class="eyebrow">Performance materials</p>
+      <h2>Resume</h2>
+      <div class="resume-card">
+        <p>View Katarina’s acting, performance, training, and special-skills résumé by downloading the PDF below.</p>
+        <a id="resume-download" class="button" href="Katarina_Andrade_Resume.pdf" download="Katarina_Andrade_Resume.pdf">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" data-page="contact">
+    <div class="section-inner">
+      <p class="eyebrow">Let’s connect</p>
+      <h2>Contact</h2>
+      <p>For auditions, collaborations, or representation inquiries, I’d love to hear from you.</p>
+      <a class="button" href="mailto:katarinavianasa@gmail.com">katarinavianasa@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Katarina Andrade</footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', isOpen);
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+
+    const pageSections = [...document.querySelectorAll('section[data-page]')];
+    const pageLinks = [...document.querySelectorAll('[data-page-link]')];
+    const validPages = new Set(pageSections.map(section => section.dataset.page));
+    const pageTitles = {
+      home: 'Katarina Andrade | Actor, Singer & Storyteller',
+      acting: 'Acting | Katarina Andrade',
+      singing: 'Singing | Katarina Andrade',
+      headshots: 'Headshots | Katarina Andrade',
+      resume: 'Resume | Katarina Andrade',
+      offstage: 'Offstage | Katarina Andrade',
+      contact: 'Contact | Katarina Andrade'
+    };
+
+    function openPage(requestedPage, updateHistory = false) {
+      const page = validPages.has(requestedPage) ? requestedPage : 'home';
+      pageSections.forEach(section => {
+        const isActive = section.dataset.page === page;
+        section.classList.toggle('active-page', isActive);
+        if (!isActive) section.querySelectorAll('video').forEach(video => video.pause());
+      });
+      pageLinks.forEach(link => {
+        const isActive = link.dataset.pageLink === page;
+        link.classList.toggle('active-tab', isActive);
+        if (isActive) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      document.title = pageTitles[page];
+      if (updateHistory && window.location.hash !== `#${page}`) {
+        history.pushState({ page }, '', `#${page}`);
+      }
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    pageLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openPage(link.dataset.pageLink, true);
+      });
+    });
+    window.addEventListener('popstate', () => openPage(window.location.hash.slice(1) || 'home'));
+    openPage(window.location.hash.slice(1) || 'home');
+
+    document.querySelectorAll('.resume-link').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        openPage('resume', true);
+      });
+    });
+  </script>
+</body>
+</html>
